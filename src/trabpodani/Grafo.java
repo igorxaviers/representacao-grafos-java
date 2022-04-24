@@ -3,23 +3,25 @@ package trabpodani;
 public class Grafo {
     protected char indentificadores[];
     protected String ligacoes[];
-    protected int vertices;
-    protected int arestas;
+    protected int ligacoesPesos[];
+    protected int qtdVertices;
+    protected int qtdArestas;
     protected boolean isDigrafo;
 
-    public Grafo(int qtdVertices, int qtdArestas, String vetLig[], char vetId[], boolean isDigrafo){
-        this.vertices = qtdVertices;
-        this.arestas = qtdArestas;
+    public Grafo(int qtdVertices, int qtdArestas, String[] vetLig, char[] vetId, int[] ligacoesPesos, boolean isDigrafo){
+        this.qtdVertices = qtdVertices;
+        this.qtdArestas = qtdArestas;
         this.ligacoes = vetLig;
         this.indentificadores = vetId;
+        this.ligacoesPesos = ligacoesPesos;
         this.isDigrafo = isDigrafo;
     }
 
     public void exibirRepresentacao(){}
     public void construirRepresentacao(){};
 
-    public int getArestas() {
-        return arestas;
+    public int getQtdArestas() {
+        return qtdArestas;
     }
 
     public char getIdentificadores(int pos) {
@@ -34,12 +36,16 @@ public class Grafo {
         return ligacoes;
     }
 
-    public int getVertices() {
-        return vertices;
+    public String getLigacoes(int pos) {
+        return ligacoes[pos];
+    }
+
+    public int getQtdVertices() {
+        return qtdVertices;
     }
 
     public void setArestas(int arestas) {
-        this.arestas = arestas;
+        this.qtdArestas = arestas;
     }
 
     public void setDigrafo(boolean isDigrafo) {
@@ -55,7 +61,29 @@ public class Grafo {
     }
 
     public void setVertices(int vertices) {
-        this.vertices = vertices;
+        this.qtdVertices = vertices;
     }
+
+    public int[] getLigacoesPesos() {
+        return ligacoesPesos;
+    }
+
+    public int getLigacoesPesos(int pos) {
+        return ligacoesPesos[pos];
+    }
+
+    public void setLigacoesPesos(int[] ligacoesPesos) {
+        this.ligacoesPesos = ligacoesPesos;
+    }
+
+    // - Classificar Grafo
+    // Simples - Grafo não direcionado
+    // Regular - Um grafo é dito ser regular quando todos os seus vértices tem o mesmo grau.
+    // Completo - Um grafo é dito ser completo quando há uma aresta entre cada par de seus vértices.
+    public void classificaGrafo() {
+        boolean laco = false;
+        int grauEntrada;
+    }
+
 
 }

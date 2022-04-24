@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class TrabPoDani {
     public static void main(String[] args) {
-        int vertices = 0, TLIV = 0, TLIA = 0, arestas = 0, ligacoesPesos[];
+        int vertices = 0, TLIV = 0, TLIA = 0, arestas = 0, ligacoesPesos[]=null;
         boolean isDigrafo = false;
         char identificadoresVertices[];
         String ligacoesArestas[], ligOrigem, ligDestino, temPeso = "";
@@ -24,72 +24,77 @@ public class TrabPoDani {
             //Quantidade de vertices para gerar o meu grafico.
             System.out.print( "Digite o numero de vertices: " );
             vertices = input.nextInt();
-            
-            //inicializa o vetor com o numero de vertices
+
+            exibeLinha();
+
+            //Inicializa o vetor com o numero de vértices
             identificadoresVertices = new char[vertices];
-            
+            //Identifica as vértices
             for(int i=vertices; i>0; i--){
-                System.out.println("Digite a indentificação (x,Y,Z,A,B...)");
-                identificadoresVertices[TLIV++] = input.next().charAt(0);
+                System.out.print("Digite a indentificação: ");
+                identificadoresVertices[TLIV++] = Character.toUpperCase(input.next().charAt(0));
             }
+
+            exibeLinha();
             
             //Quantidade de arestas para gerar o grafo
-            System.out.println("Informe a quantidade de arestas");
+            System.out.print("Informe a quantidade de arestas: ");
             arestas = input.nextInt();
+
+            exibeLinha();
+
             ligacoesArestas = new String[arestas];
-            for(int i = arestas; i > 0; i--){
-
-                System.out.println("ORIGEM da aresta");
-                ligOrigem = input.next();
-                System.out.println("DESTINO [ "+ligOrigem+" -> ? ]");
-                ligDestino = input.next();
-
+            
+            System.out.println("Informe as arestas\n");
+            for(int i = 0; i < arestas; i++){
+                System.out.print("Aresta ["+ (i+1) +"] - ORIGEM: ");
+                ligOrigem = input.next().toUpperCase();
+                System.out.print("Aresta ["+ (i+1) +"] - DESTINO "+ligOrigem+" -> ");
+                ligDestino = input.next().toUpperCase();
                 ligacoesArestas[TLIA++] = ligOrigem.concat(ligDestino);
+                exibeLinha();
             }
 
-            //Tem peso?
-            // System.out.println("Tem peso? (S/N)");
-            // temPeso = input.next().toUpperCase();
-            // if(temPeso.equals("S")){
-            //     ligacoesPesos = new int[arestas];
-            //     for(int i = arestas; i > 0; i--){
-            //         System.out.println("PESO da aresta");
-            //         ligacoesPesos[i] = input.nextInt();
-            //     }
-            // }
+            // Tem peso?
+            System.out.print("Tem peso? (S/N)");
+            temPeso = input.next().toUpperCase();
+            if(temPeso.equals("S")){
+                ligacoesPesos = new int[arestas];
+                for(int i = 0; i < arestas; i++){
+                    System.out.print("PESO da aresta ["+ligacoesArestas[i]+"]: ");
+                    ligacoesPesos[i] = input.nextInt();
+                }
+            }
 
+            exibeLinha();
             
             
-            // System.out.println("É dígrafo? (S/N)");
-            // isDigrafo = input.next().equals("S") ? true : false;
-
             //Cria o grafo
-            
+            Mi matrizInciendia = new Mi(vertices, arestas, ligacoesArestas, identificadoresVertices, ligacoesPesos, isDigrafo);
+            Ma matrizAdjacencia = new Ma(vertices, arestas, ligacoesArestas, identificadoresVertices, ligacoesPesos, isDigrafo);
+            RepresentacaoLista representacaoLista = new RepresentacaoLista(vertices, arestas, ligacoesArestas, identificadoresVertices, ligacoesPesos, isDigrafo);
 
-            // Mi matrizIncidencia = new Mi(vertices, arestas, ligacoesArestas, identificadoresVertices, isDigrafo);
-            Ma matrizAdjacencia = new Ma(vertices, arestas, ligacoesArestas, identificadoresVertices, isDigrafo);
+            System.out.println("Matriz de Adjacência");
             matrizAdjacencia.exibirRepresentacao();
-            // matrizIncidencia.exibirRepresentacao();
-            // Lista lista = new Lista(vertices, arestas, identificadoresVertices, ligacoesArestas, isDi*grafo);
-            
-            // switch(resposta){
-            //     case "S":                  
-                    
-            //         break;                                      
-            //     case "N":
-                    
-            //         break;
-                
-            // }
+            exibeLinha();
 
+            System.out.println("Matriz de Incidência");
+            matrizInciendia.exibirRepresentacao();
+            exibeLinha();
 
+            System.out.println("Representacao em Lista");
+            representacaoLista.exibirRepresentacao();
+            exibeLinha();
 
-            
             input.close();
         }
         catch(Exception e){
             System.out.println(e + " Digite um numero inteiro valido");
         }        
+    }
+
+    public static void exibeLinha(){
+        System.out.println("-----------------------------------------------------");
     }
     
 
