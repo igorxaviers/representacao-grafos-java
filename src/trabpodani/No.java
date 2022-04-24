@@ -8,11 +8,13 @@ public class No{
   public No(char identificador){
     this.identificador = identificador;
     this.info = 0;
+    this.proximo = null;
   }
 
   public No(char identificador, int info){
     this(identificador);
     this.info = info;
+    this.proximo = null;
   }
 
   public No getProximo() {

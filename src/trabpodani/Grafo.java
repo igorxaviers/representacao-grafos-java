@@ -8,7 +8,7 @@ public class Grafo {
     protected int qtdArestas;
     protected boolean isDigrafo;
 
-    public Grafo(int qtdVertices, int qtdArestas, String[] vetLig, char[] vetId, int[] ligacoesPesos, boolean isDigrafo){
+    public Grafo(int qtdVertices, int qtdArestas, String vetLig[], char vetId[], int ligacoesPesos[], boolean isDigrafo){
         this.qtdVertices = qtdVertices;
         this.qtdArestas = qtdArestas;
         this.ligacoes = vetLig;

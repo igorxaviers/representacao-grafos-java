@@ -36,7 +36,7 @@ public class TrabPoDani {
             }
 
             exibeLinha();
-            
+
             //Quantidade de arestas para gerar o grafo
             System.out.print("Informe a quantidade de arestas: ");
             arestas = input.nextInt();
@@ -44,7 +44,7 @@ public class TrabPoDani {
             exibeLinha();
 
             ligacoesArestas = new String[arestas];
-            
+
             System.out.println("Informe as arestas\n");
             for(int i = 0; i < arestas; i++){
                 System.out.print("Aresta ["+ (i+1) +"] - ORIGEM: ");
@@ -67,9 +67,10 @@ public class TrabPoDani {
             }
 
             exibeLinha();
-            
-            
+
+
             //Cria o grafo
+            // O IS DIGRAFO PROVAVELMENTE VAI TER QUE SER REMOVIDO, A VALIDAÇÃO TEM QUE SER FEITA DENTRO DA CLASSE
             Mi matrizInciendia = new Mi(vertices, arestas, ligacoesArestas, identificadoresVertices, ligacoesPesos, isDigrafo);
             Ma matrizAdjacencia = new Ma(vertices, arestas, ligacoesArestas, identificadoresVertices, ligacoesPesos, isDigrafo);
             RepresentacaoLista representacaoLista = new RepresentacaoLista(vertices, arestas, ligacoesArestas, identificadoresVertices, ligacoesPesos, isDigrafo);
@@ -89,15 +90,15 @@ public class TrabPoDani {
             input.close();
         }
         catch(Exception e){
-            System.out.println(e + " Digite um numero inteiro valido");
-        }        
+            System.out.println(e);
+        }
     }
 
     public static void exibeLinha(){
         System.out.println("-----------------------------------------------------");
     }
-    
 
-    
-    
+
+
+
 }
