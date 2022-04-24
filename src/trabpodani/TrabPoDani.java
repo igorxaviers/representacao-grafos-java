@@ -71,6 +71,8 @@ public class TrabPoDani {
 
             //Cria o grafo
             // O IS DIGRAFO PROVAVELMENTE VAI TER QUE SER REMOVIDO, A VALIDAÇÃO TEM QUE SER FEITA DENTRO DA CLASSE
+            //NO meu caso da representação de lista, ela funciona sem necessariamente ter alguma variavel perguntando se é ou não digrafo
+            //a propria estrutura e o codigo ja estao preparados para tratatar esses elementos.
             Mi matrizInciendia = new Mi(vertices, arestas, ligacoesArestas, identificadoresVertices, ligacoesPesos, isDigrafo);
             Ma matrizAdjacencia = new Ma(vertices, arestas, ligacoesArestas, identificadoresVertices, ligacoesPesos, isDigrafo);
             RepresentacaoLista representacaoLista = new RepresentacaoLista(vertices, arestas, ligacoesArestas, identificadoresVertices, ligacoesPesos, isDigrafo);
@@ -85,6 +87,7 @@ public class TrabPoDani {
 
             System.out.println("Representacao em Lista");
             representacaoLista.exibirRepresentacao();
+            representacaoLista.classificarGrafo();
             exibeLinha();
 
             input.close();
