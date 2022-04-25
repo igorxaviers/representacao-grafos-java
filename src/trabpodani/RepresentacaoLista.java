@@ -50,22 +50,36 @@ public class RepresentacaoLista extends Grafo{
 
 
   public boolean validateIfIsSimple(){ //Um grafo simples não tem laço nem multiplas arestas
-    int countLacos = 0, i=0;
+    int countLacos = 0, i=0, countMultiplas;
     boolean flagSemLacos = true;
     boolean flagSemMultiplasArestas = true;
-    No aux;
+    No aux, auxCabecaMultipla, auxProxCabecaMultipla;
     No cabeca;
 
-    while(i < getQtdVertices() && flagSemLacos){
+    while(i < getQtdVertices() && flagSemLacos){ // Repeticão Listas[]
       cabeca = listas[i].inicio;
 
-      for(aux = listas[i].inicio; aux != null; aux = aux.getProximo()) // verifica se não existe um laço percorrendo coluna [A] -> [B] -> [A]
-        if(cabeca.getIdentificador() == aux.getIdentificador())
-          countLacos++; //Sempre vai somar com a cabeca - se for maior que 1, sai da repeticao
+      aux = listas[i].inicio;
+      while(aux != null && flagSemMultiplasArestas){ // Repetição No de listas[i]
+        if(cabeca.getIdentificador() == aux.getIdentificador()) // Verificação se é laçõ (sempre vai ter count = 1, SE FOR MAIOR QUE 1 > TEM LAÇO)
+          countLacos++;
 
-      for(int j = i+1; j < getQtdVertices(); j++) //verifica se não existe multigrafos pela quantidade de cabecas iguais por linha. (vou desenhar nn)
-        if(cabeca.identificador == listas[j].inicio.identificador)
+        countMultiplas = 1;
+        auxCabecaMultipla = aux.getProximo();
+        while(auxCabecaMultipla != null){ //Verifica cada caixa da lista, se se repetem (arestas multiplas)
+          auxProxCabecaMultipla = auxCabecaMultipla.getProximo();
+
+          if(auxProxCabecaMultipla != null && auxProxCabecaMultipla.getIdentificador() == auxCabecaMultipla.identificador)
+            countMultiplas++;
+
+          auxCabecaMultipla = auxCabecaMultipla.getProximo();
+        }
+
+        if(countMultiplas > 1)
           flagSemMultiplasArestas = false;
+
+        aux = aux.getProximo();
+      }
 
       if(countLacos > 1)
         flagSemLacos = false;
