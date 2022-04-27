@@ -7,6 +7,7 @@ public class Mi extends Grafo{
 
     @Override
     public void exibirRepresentacao() {
+        System.out.println("Matriz de Incidência\n");
         System.out.print("    |");
 
         for(int coluna = 0; coluna < getQtdArestas(); coluna++){
