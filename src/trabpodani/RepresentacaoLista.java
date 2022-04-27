@@ -94,10 +94,24 @@ public class RepresentacaoLista extends Grafo{
     return false;
   }
 
-  public boolean validateIfIsRegular(){
-    boolean flag = false;
+  public boolean validateIfIsRegular(){ //é regular quando todos os vertices tem o mesmo grau
+    boolean flagIsRegular = true;
+    int i=0, countGrau, maxGrau = geSizeList(listas[0]); //independete se é o tamanho maximo ou não, se 1 elemento da contagem for diferente, não é regular
+    No aux;
 
-    return flag;
+    //A implementação ficou simples devido ao fato de ter uma validação de um grafo simples
+    //se o grafo não possui arestas multiplas, laços, é só validar a quantidade dos elementos internos.
+
+    while(i < listas.length && flagIsRegular){
+      countGrau = geSizeList(this.listas[i]);
+
+      if(countGrau != maxGrau)
+        flagIsRegular = false;
+
+      i++;
+    }
+
+    return flagIsRegular;
   }
 
   public int geSizeList(Lista lista){
@@ -119,8 +133,8 @@ public class RepresentacaoLista extends Grafo{
     char cabeca;
 
     while(i < listas.length && flagIsComplete){
-      countN = geSizeList(this.listas[i]); 
-      
+      countN = geSizeList(this.listas[i]);
+
       if(countN != totMax)
         flagIsComplete = false;
       else{
@@ -129,8 +143,8 @@ public class RepresentacaoLista extends Grafo{
         countIguais = 0;
 
         while(aux != null){
-          for(int j=0; j < getIdentificadores().length; i++){
-            if(cabeca != aux.getIdentificador() && aux.getIdentificador() == getIdentificadores()[i])
+          for(int j=0; j < getQtdVertices(); j++){
+            if(cabeca != aux.getIdentificador() && aux.getIdentificador() == getIdentificadores()[j])
               countIguais++;
           }
           aux = aux.getProximo();
@@ -148,14 +162,15 @@ public class RepresentacaoLista extends Grafo{
 
   @Override
   public void classificarGrafo(){
-    boolean isNothing = true;
+    boolean isNothing = true, isSimple;
+    isSimple = validateIfIsSimple();
 
-    if(validateIfIsSimple()){
+    if(isSimple){
       System.out.println("- O Grafo é do tipo Simples.");
       isNothing = false;
     }
 
-    if(validateIfIsComplete()){
+    if(isSimple && validateIfIsComplete()){
       System.out.println("- O grafo é do tipo completo.");
       isNothing = false;
     }
