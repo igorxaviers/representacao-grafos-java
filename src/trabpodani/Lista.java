@@ -11,9 +11,9 @@ public class Lista{
         if(this.inicio ==null)
             this.inicio = this.fim = no;
         else{
-            no.setProximo(fim);
+            this.fim.setProximo(no);
             fim = no;
-        }    
+        }
     }
 
     public void insereNoFim(char indentificador){
@@ -22,9 +22,9 @@ public class Lista{
         if(this.inicio ==null)
             this.inicio = this.fim = no;
         else{
-            no.setProximo(fim);
+            this.fim.setProximo(no);
             fim = no;
         }
     }
-    
+
 }

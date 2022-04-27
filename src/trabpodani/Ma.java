@@ -3,7 +3,7 @@ package trabpodani;
 
 
 public class Ma extends Grafo{
-    public Ma(int qtdVertices, int qtdArestas, String[] vetLig, char[] vetId, int[] ligacoesPesos, boolean isDigrafo){
+    public Ma(int qtdVertices, int qtdArestas, String vetLig[], char vetId[], int ligacoesPesos[], boolean isDigrafo){
         super(qtdVertices, qtdArestas, vetLig, vetId, ligacoesPesos, isDigrafo);
     }
 

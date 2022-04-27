@@ -1,7 +1,7 @@
 package trabpodani;
 
 public class Mi extends Grafo{
-    public Mi(int qtdVertices, int qtdArestas, String[] vetLig, char[] vetId, int[] ligacoesPesos, boolean isDigrafo){
+    public Mi(int qtdVertices, int qtdArestas, String vetLig[], char vetId[], int ligacoesPesos[], boolean isDigrafo){
         super(qtdVertices, qtdArestas, vetLig, vetId, ligacoesPesos, isDigrafo);
     }
 
@@ -29,5 +29,5 @@ public class Mi extends Grafo{
     @Override
     public void construirRepresentacao() {
     }
-    
+
 }
