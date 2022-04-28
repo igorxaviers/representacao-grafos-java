@@ -38,7 +38,7 @@ public class RepresentacaoLista extends Grafo{
   @Override
   public void exibirRepresentacao(){
     this.construirRepresentacao();
-
+    System.out.println("Representacao em Lista\n");
     No aux;
     for(int i=0; i < getQtdVertices(); i++ ){
       for(aux = listas[i].inicio; aux != null; aux = aux.getProximo()){

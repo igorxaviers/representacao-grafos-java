@@ -3,8 +3,7 @@ package trabpodani;
 
 
 public class Ma extends Grafo{
-    
-    int matriz [][];
+    private int matriz [][];
 
     public Ma(int qtdVertices, int qtdArestas, String vetLig[], char vetId[], int ligacoesPesos[], boolean isDigrafo){
         super(qtdVertices, qtdArestas, vetLig, vetId, ligacoesPesos, isDigrafo);
@@ -92,7 +91,7 @@ public class Ma extends Grafo{
             }
         }
         if(qtdLigacoes != (qtdVertices * (qtdVertices - 1)) / 2){
-            System.out.println("\nO grafo não é completo!");
+            System.out.println("O grafo não é completo!");
             return;
         }
     }

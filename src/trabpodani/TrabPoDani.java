@@ -111,7 +111,6 @@ public class TrabPoDani {
 
                 case 3:
                     RepresentacaoLista representacaoLista = new RepresentacaoLista(vertices, arestas, ligacoesArestas, identificadoresVertices, ligacoesPesos, isDigrafo);
-                    System.out.println("Representacao em Lista");
                     representacaoLista.exibirRepresentacao();
                     representacaoLista.classificarGrafo();
                     exibeLinha();

@@ -1,8 +1,12 @@
 package trabpodani;
 
 public class Mi extends Grafo{
+    private int matriz [][];
+
+    
     public Mi(int qtdVertices, int qtdArestas, String vetLig[], char vetId[], int ligacoesPesos[], boolean isDigrafo){
         super(qtdVertices, qtdArestas, vetLig, vetId, ligacoesPesos, isDigrafo);
+        this.matriz = new int[qtdVertices][qtdArestas];
     }
 
     @Override
