@@ -22,7 +22,7 @@ public class TrabPoDani {
 
         try{
             //Quantidade de vertices para gerar o meu grafico.
-            System.out.print( "\nNúmero de vertices: " );
+            System.out.print( "\nNúmero de vértices: " );
             vertices = input.nextInt();
 
             exibeLinha();
@@ -31,20 +31,17 @@ public class TrabPoDani {
             identificadoresVertices = new char[vertices];
             //Identifica as vértices
             for(int i=0; i<vertices; i++){
-                System.out.print("IDENTIFICAÇÃO Vértice["+(i+1)+"] : ");
+                System.out.print("Identificação Vértice["+(i+1)+"] : ");
                 identificadoresVertices[TLIV++] = Character.toUpperCase(input.next().charAt(0));
             }
 
             exibeLinha();
-
-
 
             System.out.println("Escolha uma representação para o grafo: \n");
             System.out.println("1 - Matriz de Adjacência");
             System.out.println("2 - Matriz de Incidência");
             System.out.println("3 - Lista de Adjacência");
             System.out.print("\nOpção: ");
-
             opcao = input.nextInt();
 
             exibeLinha();
@@ -91,7 +88,7 @@ public class TrabPoDani {
             if(temPeso.equals("S")){
                 ligacoesPesos = new int[arestas];
                 for(int i = 0; i < arestas; i++){
-                    System.out.print("PESO da aresta ["+ligacoesArestas[i]+"]: ");
+                    System.out.print("Valor da aresta ["+ligacoesArestas[i]+"]: ");
                     ligacoesPesos[i] = input.nextInt();
                 }
             }

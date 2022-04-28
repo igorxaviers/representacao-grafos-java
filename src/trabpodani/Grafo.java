@@ -81,8 +81,6 @@ public class Grafo {
     // Regular - Um grafo é dito ser regular quando todos os seus vértices tem o mesmo grau.
     // Completo - Um grafo é dito ser completo quando há uma aresta entre cada par de seus vértices.
     public void classificarGrafo() {
-        boolean laco = false;
-        int grauEntrada;
     }
 
 

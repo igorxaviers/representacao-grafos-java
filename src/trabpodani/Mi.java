@@ -45,16 +45,21 @@ public class Mi extends Grafo{
         for (int i = 0; i < this.matriz.length; i++) {
             for (int j = 0; j < this.matriz[i].length; j++) {
                 if(getIdentificadores(i) == getLigacoes(j).charAt(0)){
-                    if(getLigacoesPesos() != null){
-                        if(isDigrafo){
+                    if(isDigrafo){
+                        if(getLigacoesPesos() != null){
                             this.matriz[i][j] = getLigacoesPesos(j) * -1;
                         }
-                        else {
-                            this.matriz[i][j] = getLigacoesPesos(j);
+                        else{
+                            this.matriz[i][j] = -1;
                         }
                     }
-                    else {
-                        this.matriz[i][j] = -1;
+                    else{
+                        if(getLigacoesPesos() != null){
+                            this.matriz[i][j] = getLigacoesPesos(j);
+                        }
+                        else{
+                            this.matriz[i][j] = 1;
+                        }
                     }
                 }
                 else if(getIdentificadores(i) == getLigacoes(j).charAt(1)){
@@ -70,12 +75,10 @@ public class Mi extends Grafo{
                 }
             }
         }
-        // for (int i = 0; i < this.matriz.length; i++) {
-        //     for (int j = 0; j < this.matriz[i].length; j++) {
-        //         System.out.print(this.matriz[i][j] + "\t");
-        //     }
-        //     System.out.println();
-        // }
+    }
+
+    public void validateIfIsSimple(){
+        
     }
 
 }
