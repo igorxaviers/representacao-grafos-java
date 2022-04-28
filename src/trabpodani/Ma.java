@@ -83,16 +83,19 @@ public class Ma extends Grafo{
 
     public void validateIfIsComplete(){
         int qtdVertices = getQtdVertices();
-        int qtdArestas = getQtdArestas();
         int qtdLigacoes = 0;
-        for(int i = 0; i < qtdArestas; i++){
-            if(getLigacoesPesos()[i] != 0){
-                qtdLigacoes++;
+        for(int i = 0; i < qtdVertices; i++){
+            for(int j = 0; j < qtdVertices; j++){
+                if(this.matriz[i][j] != 0){
+                    qtdLigacoes++;
+                }
             }
         }
         if(qtdLigacoes != (qtdVertices * (qtdVertices - 1)) / 2){
             System.out.println("O grafo não é completo!");
-            return;
+        }
+        else{
+            System.out.println("O grafo é completo!");
         }
     }
 }

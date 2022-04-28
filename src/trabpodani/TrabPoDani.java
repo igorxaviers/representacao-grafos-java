@@ -22,7 +22,7 @@ public class TrabPoDani {
 
         try{
             //Quantidade de vertices para gerar o meu grafico.
-            System.out.print( "Digite o numero de vertices: " );
+            System.out.print( "\nNúmero de vertices: " );
             vertices = input.nextInt();
 
             exibeLinha();
@@ -30,8 +30,8 @@ public class TrabPoDani {
             //Inicializa o vetor com o numero de vértices
             identificadoresVertices = new char[vertices];
             //Identifica as vértices
-            for(int i=vertices; i>0; i--){
-                System.out.print("Digite a indentificação: ");
+            for(int i=0; i<vertices; i++){
+                System.out.print("IDENTIFICAÇÃO Vértice["+(i+1)+"] : ");
                 identificadoresVertices[TLIV++] = Character.toUpperCase(input.next().charAt(0));
             }
 
@@ -39,10 +39,12 @@ public class TrabPoDani {
 
 
 
-            System.out.println("Escolha uma representação para o grafo: ");
+            System.out.println("Escolha uma representação para o grafo: \n");
             System.out.println("1 - Matriz de Adjacência");
             System.out.println("2 - Matriz de Incidência");
             System.out.println("3 - Lista de Adjacência");
+            System.out.print("\nOpção: ");
+
             opcao = input.nextInt();
 
             exibeLinha();
@@ -60,6 +62,12 @@ public class TrabPoDani {
             }
             exibeLinha();
 
+            if(opcao == 2){
+                System.out.print("É digrafo? (S/N): ");
+                isDigrafo = input.next().charAt(0) == 'S';
+            }
+
+            exibeLinha();
 
             //Identifica as arestas
             ligacoesArestas = new String[arestas];
@@ -78,7 +86,7 @@ public class TrabPoDani {
 
 
             // Tem peso?
-            System.out.print("Tem peso? (S/N): ");
+            System.out.print("Arestas valoradas (S/N): ");
             temPeso = input.next().toUpperCase();
             if(temPeso.equals("S")){
                 ligacoesPesos = new int[arestas];
@@ -89,7 +97,6 @@ public class TrabPoDani {
             }
 
             exibeLinha();
-
 
             //Cria o grafo
             // O IS DIGRAFO PROVAVELMENTE VAI TER QUE SER REMOVIDO, A VALIDAÇÃO TEM QUE SER FEITA DENTRO DA CLASSE
